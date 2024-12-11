@@ -16,7 +16,7 @@ buy_rates = [i.get_text(strip=True) for i in soup.find_all('div', class_='Text__
 
 # Заполняем словарь курсами валют
 for name, buy_rate in zip(names, buy_rates):
-    dct[name] = buy_rate
+    dct[name] = buy_rate[:-1]
 
 # Записываем данные в JSON файл
 with open("data.json", "w", encoding="utf-8") as json_file:
